@@ -1,6 +1,7 @@
 package com.momentum.conversion.helper;
 
 import com.momentum.conversion.Model.ConvertModel;
+import com.momentum.conversion.config.ConversionException;
 import com.momentum.conversion.service.ConversionService;
 import org.springframework.stereotype.Service;
 
@@ -27,9 +28,12 @@ public class ConversionFactory {
         }
     }
 
-    private static ConversionService getService(Constants.Service name) {
-        return serviceMap.get(name);
-        //if(service == null) throw new RuntimeException("Unknown service type: " + type);
+    private static ConversionService getService(Constants.Service name) throws ConversionException {
+        ConversionService service =  serviceMap.get(name);
+        if(service == null) {
+            throw new ConversionException("Unknown service type: " + service);
+        }
+        return service;
     }
 
     public static void execute(ConvertModel model) throws Exception {

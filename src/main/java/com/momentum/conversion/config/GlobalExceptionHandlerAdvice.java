@@ -14,7 +14,7 @@ public class GlobalExceptionHandlerAdvice {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleException(Exception e) {
         log.error("Exception while processing : {}, exception type :",e.getMessage(), e);
-        String message = e.getMessage()!=null?e.getMessage():"Something went wrong. Please connect with Support team with Error Code";
+        String message = e.getMessage()!=null?e.getMessage():"Something went wrong. Please connect with Support team";
         ErrorResponse response = new ErrorResponse(message);
         return new ResponseEntity(response, HttpStatus.OK);
     }

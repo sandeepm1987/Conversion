@@ -68,7 +68,7 @@ public class ConversionHelper {
         commonEnumMap.put(MB, toMap);
     }
 
-    private static String getExpression(String from, String to, Constants.Service service) throws ConversionException{
+    private static String getExpression(String from, String to, Constants.Service service) throws ConversionException {
         String result;
         switch (service) {
             case COMMON_SERVICE:
@@ -80,23 +80,23 @@ public class ConversionHelper {
         return result;
     }
 
-    private static <E extends Enum<E>> String getResult(Class<E> type, String from, String to, EnumMap<E, EnumMap<E, String>> map) throws ConversionException{
+    private static <E extends Enum<E>> String getResult(Class<E> type, String from, String to, EnumMap<E, EnumMap<E, String>> map) throws ConversionException {
         E fromE = lookup(type, from);
         E fromT = lookup(type, to);
 
         Optional<EnumMap<E, String>> optionalEnumMap = Optional.ofNullable(map.get(fromE));
         if (optionalEnumMap.isPresent()) {
             Optional<String> optionalS = Optional.ofNullable(optionalEnumMap.get().get(fromT));
-            if(optionalS.isPresent()){
+            if (optionalS.isPresent()) {
                 return optionalS.get();
             }
         }
-        log.error("Mapping is missing for Type:{}, From:{}, To:{}", type.getName(),from,to);
+        log.error("Mapping is missing for Type:{}, From:{}, To:{}", type.getName(), from, to);
         throw new ConversionException();
     }
 
 
-    private static <E extends Enum<E>> E lookup(Class<E> e, String value) throws ConversionException{
+    private static <E extends Enum<E>> E lookup(Class<E> e, String value) throws ConversionException {
         try {
             return Enum.valueOf(e, value);
         } catch (IllegalArgumentException ex) {
@@ -105,7 +105,7 @@ public class ConversionHelper {
     }
 
 
-    public static String evaluate(ConvertModel model) throws ConversionException{
+    public static String evaluate(ConvertModel model) throws ConversionException {
         if (model instanceof CommonModel) {
             CommonModel commonModel = (CommonModel) model;
             Expression builder = new ExpressionBuilder(getExpression(commonModel.getFrom(), commonModel.getTo(), commonModel.getType()))
