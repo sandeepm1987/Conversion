@@ -1,10 +1,10 @@
 # Conversion API
 
-##Overview
+## Overview
 This repository contains APIs for basic conversion. 
 
-##Guidelines
-###API is supporting following Conversions
+## Guidelines
+### API is supporting following Conversions
 
 * <b>Mass:</b>
   * from/to - kilogram or pound
@@ -28,7 +28,7 @@ This repository contains APIs for basic conversion.
   * /convert/v1/time/sec/min/{{X}}
 
 <i><u>Note: API returns Json on success. Refer json property "result" for outcome.</i></u>  
-###Prerequisite
+### Prerequisite
 * Maven: 3.6.3
 * Java : 8 or above
 * PostMan: 9.0.5
@@ -51,7 +51,7 @@ Use following steps for running the application
    ````
    http://localhost:8080/actuator/health (This should return status "UP")
    ````
-###Use Postman
+### Use Postman
 1. Download following json
    1. Conversion.postman_collection.json
    2. DEV.postman_environment.json
@@ -63,15 +63,15 @@ Use following steps for running the application
 7. Select Conversion from left collection panel
 8. Click on Run button
 
-###Code Review
+### Code Review
 * Rest controllers have been used for crating endpoints
 * Controller calls factory for calling respective services
 * Service calls helper class for evaluating conversion
 * For time being I have used EnumMap for storing all static conversions (This can be replaced by DB or REST endpoints)
 
 
-##Features
-###Designed API with following features 
+## Features
+### Designed API with following features 
 1. Spring Boot
 2. <i>Junit5</i> for unit and integration testing
 3. Spring Loggers
@@ -80,13 +80,13 @@ Use following steps for running the application
 6. Actuators (For health check and Metrics information)
 7. Postman (For verifying end points. It also verifies test cases written in postman)
 
-##Future Scope
-###Following can be implemented in future
+## Future Scope
+### Following can be implemented in future
 1. Swagger (should be improvised)
 2. Security (Secure API with OAUTH2)
 3. Use React/Angular for testing APIs
 4. BDD
 5. Database (Populate static data (Conversion) from DB)
 
-##Support
+## Support
 <b>Please enter an issue in the repo for any questions or problems.</b>
