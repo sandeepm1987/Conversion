@@ -9,11 +9,11 @@ This repository contains APIs for basic conversion.
 * <b>Mass:</b>
   * from/to - kilogram or pound
   * {{X}}   - value to be convert
-  * e.g. /convert/v1/mass/kilogram/pound/{{X}}
+  * e.g. /convert/v1/mass/{from}/{to}/{{X}}
 * <b>Temperature:</b>
   * from/to - fahrenheit or celsius
   * {{X}}   - value to be convert
-  * /convert/v1/temperature/celsius/fahrenheit/{{X}}
+  * /convert/v1/temperature/{from}/{to}/{{X}}
 * <b>Discount:</b>
   * {{X}}   - Original value
   * {{X}}   - Discount Percentage
@@ -21,11 +21,11 @@ This repository contains APIs for basic conversion.
 * <b>Digital Storage:</b>
   * from/to - gb or mb
   * {{X}}   - value to be convert
-  * /convert/v1/digitalstorage/gb/mb/{{X}}
+  * /convert/v1/digitalstorage/{from}/{to}/{{X}}
 * <b>Time:</b>
   * from/to - sec or min
   * {{X}}   - value to be convert
-  * /convert/v1/time/sec/min/{{X}}
+  * /convert/v1/time/{from}/{to}/{{X}}
 
 <i><u>Note: API returns Json on success. Refer json property "result" for outcome.</i></u>  
 ### Prerequisite
@@ -33,7 +33,7 @@ This repository contains APIs for basic conversion.
 * Java : 8 or above
 * PostMan: 9.0.5
 
-Use following steps for running the application
+### Use following steps for running the application
 1. Clone Repository
    ```
    git clone git@github.com:sandeepm1987/Conversion.git
@@ -52,7 +52,7 @@ Use following steps for running the application
    http://localhost:8080/actuator/health (This should return status "UP")
    ````
 ### Use Postman
-1. Download following json
+1. Download/Refer following json present under Postman directory
    1. Conversion.postman_collection.json
    2. DEV.postman_environment.json
 2. Open Postman
@@ -68,6 +68,7 @@ Use following steps for running the application
 * Controller calls factory for calling respective services
 * Service calls helper class for evaluating conversion
 * For time being I have used EnumMap for storing all static conversions (This can be replaced by DB or REST endpoints)
+* Designed this application such that it can easily evolve with minimum code changes. (e.g. if you need to introduce new conversion, just add that entry in enummap) or change is not compatible, in thta case create new service which wont break existing functionality. 
 
 
 ## Features
