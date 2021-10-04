@@ -33,7 +33,7 @@ This repository contains APIs for basic conversion.
 * Java : 8 or above
 * PostMan: 9.0.5
 
-Use following steps for running the application
+### Use following steps for running the application
 1. Clone Repository
    ```
    git clone git@github.com:sandeepm1987/Conversion.git
@@ -52,7 +52,7 @@ Use following steps for running the application
    http://localhost:8080/actuator/health (This should return status "UP")
    ````
 ### Use Postman
-1. Download following json
+1. Download/Refer following json present under Postman directory
    1. Conversion.postman_collection.json
    2. DEV.postman_environment.json
 2. Open Postman
@@ -68,6 +68,7 @@ Use following steps for running the application
 * Controller calls factory for calling respective services
 * Service calls helper class for evaluating conversion
 * For time being I have used EnumMap for storing all static conversions (This can be replaced by DB or REST endpoints)
+* Designed this application such that it can easily evolve with minimum code changes. (e.g. if you need to introduce new conversion, just add that entry in enummap) or change is not compatible, in thta case create new service which wont break existing functionality. 
 
 
 ## Features
