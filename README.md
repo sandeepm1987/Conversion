@@ -9,11 +9,11 @@ This repository contains APIs for basic conversion.
 * <b>Mass:</b>
   * from/to - kilogram or pound
   * {{X}}   - value to be convert
-  * e.g. /convert/v1/mass/kilogram/pound/{{X}}
+  * e.g. /convert/v1/{from}/{to}/pound/{{X}}
 * <b>Temperature:</b>
   * from/to - fahrenheit or celsius
   * {{X}}   - value to be convert
-  * /convert/v1/temperature/celsius/fahrenheit/{{X}}
+  * /convert/v1/temperature/{from}/{to}/{{X}}
 * <b>Discount:</b>
   * {{X}}   - Original value
   * {{X}}   - Discount Percentage
@@ -21,11 +21,11 @@ This repository contains APIs for basic conversion.
 * <b>Digital Storage:</b>
   * from/to - gb or mb
   * {{X}}   - value to be convert
-  * /convert/v1/digitalstorage/gb/mb/{{X}}
+  * /convert/v1/digitalstorage/{from}/{to}/{{X}}
 * <b>Time:</b>
   * from/to - sec or min
   * {{X}}   - value to be convert
-  * /convert/v1/time/sec/min/{{X}}
+  * /convert/v1/time/{from}/{to}/{{X}}
 
 <i><u>Note: API returns Json on success. Refer json property "result" for outcome.</i></u>  
 ### Prerequisite
