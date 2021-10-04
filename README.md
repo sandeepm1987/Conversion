@@ -9,7 +9,7 @@ This repository contains APIs for basic conversion.
 * <b>Mass:</b>
   * from/to - kilogram or pound
   * {{X}}   - value to be convert
-  * e.g. /convert/v1/{from}/{to}/pound/{{X}}
+  * e.g. /convert/v1/mass/{from}/{to}/{{X}}
 * <b>Temperature:</b>
   * from/to - fahrenheit or celsius
   * {{X}}   - value to be convert
